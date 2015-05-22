@@ -5,7 +5,7 @@ class CreateLists < ActiveRecord::Migration
       t.string :url, null: false
       t.integer :author_id, index: true, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

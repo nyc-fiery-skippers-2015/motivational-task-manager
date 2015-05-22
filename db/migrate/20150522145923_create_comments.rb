@@ -6,7 +6,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :author_id, index: true
       t.string :name, default: 'Anonymous'
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
