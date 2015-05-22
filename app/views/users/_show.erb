@@ -1,0 +1,11 @@
+<div class='user'>
+  <%= user.name %>
+  <%= user.email %>
+</div>
+
+<!-- ADD new LIST partial required!!!!! -->
+
+<%= erb :'lists/new', locals:{user: user} %>
+
+
+<a href="/users/<%= user.id  %>/edit"> EDIT </a>
