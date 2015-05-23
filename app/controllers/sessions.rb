@@ -18,7 +18,7 @@ post '/session' do
   return [500, "No Email Found"] unless cur_user
   if cur_user.authenticate(params[:user][:password])
       session[:user_id] = cur_user.id
-      redirect "/"
+      redirect "/users/#{cur_user.id}"
   else
       redirect "/login?error=uaa"
   end
@@ -33,10 +33,8 @@ get '/session/user' do
   end
 end
 
-
-
 #Log User Out
-delete '/session' do
+post '/session/logout' do
   session[:user_id] = nil
   redirect '/'
 end

@@ -8,14 +8,18 @@ get '/users/new' do
 end
 
 get '/users/:id' do
+  require_logged_in
   current_user = User.find_by(id: params[:id])
+  user_list = current_user.lists
   return [500, "No User Found"] unless current_user
-  erb :'users/_show', locals: {user: current_user}
+  erb :'users/_show', locals: {user: current_user, list: user_list }
 end
 
 post '/users' do
+  require_logged_in
   new_user = User.new(params[:user])
   return [500, "Invaild User"] unless new_user.save
+  session[:user_id] = new_user.id
   redirect "/users/#{new_user.id}"
 end
 
