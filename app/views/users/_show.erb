@@ -3,9 +3,5 @@
   <%= user.email %>
 </div>
 
-<!-- ADD new LIST partial required!!!!! -->
-
-<%= erb :'lists/new', locals:{user: user} %>
-
-
 <a href="/users/<%= user.id  %>/edit"> EDIT </a>
+<%= erb :'/lists/show', locals: {user: user, list: user.lists, tasks: user.tasks} %>

@@ -9,8 +9,9 @@ end
 
 get '/users/:id' do
   current_user = User.find_by(id: params[:id])
+  user_list = current_user.lists
   return [500, "No User Found"] unless current_user
-  erb :'users/_show', locals: {user: current_user}
+  erb :'users/_show', locals: {user: current_user, list: user_list }
 end
 
 post '/users' do
