@@ -5,5 +5,6 @@
 </div>
 <% user.lists.each do |l| %>
   <p> List title:<%= l.title %> </p>
-  <p> URL: <%= l.url %> </p>
+  <p> URL: <a href="/users/<%= user.id %>/<%= l.url %>"><%= l.title %></a> </p>
+  <p> Public URL: /users/<%= user.id %>/<%= l.url %></p>
 <% end %>
