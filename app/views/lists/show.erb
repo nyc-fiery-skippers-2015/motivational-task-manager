@@ -7,7 +7,10 @@
 <% tasks.each do |t| %>
   <p>task title: <%= t.title %></p>
   <p>description:<%= t.description %></p>
-
+    <form action="/<%= user.id %>/list/<%=t.id %>/delete" method="post"/>
+    <input type = "hidden" name="_method" value= "Delete"/>
+    <input type="Submit" value="DELETE"/>
+    </form>
 
   <p> comments:</p>
     <% t.comments.each do |comment| %>

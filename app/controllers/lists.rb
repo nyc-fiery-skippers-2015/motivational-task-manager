@@ -28,3 +28,11 @@ put '/users/:id/list/edit' do
   new_task.save
   redirect "/users/#{current_user.id}"
 end
+
+
+delete '/:user_id/list/:task_id/delete' do
+  task = Task.find_by(id: params[:task_id] )
+  user_id = params[:user_id]
+  task.destroy
+  redirect "/users/#{user_id}"
+end
