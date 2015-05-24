@@ -1,0 +1,9 @@
+
+<h1> User profiles </h1>
+<div class="container">
+  <p>Author: <%= user.name %></p>
+</div>
+<% user.lists.each do |l| %>
+  <p> List title:<%= l.title %> </p>
+  <p> URL: <%= l.url %> </p>
+<% end %>
