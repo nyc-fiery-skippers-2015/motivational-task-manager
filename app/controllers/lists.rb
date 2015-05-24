@@ -1,12 +1,18 @@
 require 'pry'
 
-
+get '/users/:id/:url' do
+  user_list = List.find_by(url: params[:url])
+  cur_user = User.find_by(id: user_list.author_id)
+  # binding.pry
+  erb :'/lists/public_list', locals: {list: user_list, user: cur_user}
+end
 #make new list route
 get '/users/:id/lists/new' do
   require_logged_in
   current_user = User.find_by(id: params[:id])
   erb :'/lists/new', locals: {user: current_user}
 end
+
 
 post '/users/:id/lists/new' do
   current_user = User.find_by(id: params[:id])
