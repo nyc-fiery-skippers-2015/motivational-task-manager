@@ -16,7 +16,6 @@ get '/users/:id' do
 end
 
 post '/users' do
-  require_logged_in
   new_user = User.new(params[:user])
   return [500, "Invaild User"] unless new_user.save
   session[:user_id] = new_user.id

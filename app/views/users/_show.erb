@@ -7,16 +7,15 @@
 </form>
 
 <a href="/users/<%= user.id  %>/edit"> EDIT PROFILE</a>
-<% user.lists.count %>
-<% if user.lists.count > 1 %>
+<% if user.lists.count == 1 %>
     <form action="/users/<%= user.id %>/list/edit" method="post"/>
       <input type="hidden" name="_method" value="put"/>
       <input type="task" name="task[title]" placeholder="new task title&hellip;"/>
       <input type="task" name="task[description]" placeholder="new task description&hellip;"/>
       <input type="submit" value="Do it!"/>
     </form>
-<% elsif user.lists.count < 1 %>
+  <%= erb :'/lists/show', locals: {user: user, tasks: user.tasks} %>
+<% else %>
   <p>Click <a href="/users/<%= user.id %>/lists/new">here</a> to create a new List!</p>
 
-  <%= erb :'/lists/show', locals: {user: user, list: user.lists, tasks: user.tasks} %>
 <% end %>

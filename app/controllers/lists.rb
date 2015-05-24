@@ -22,15 +22,3 @@ put '/users/:id/list/edit' do
   new_task.save
   redirect "/users/#{current_user.id}"
 end
-
-#create random url
-# get 'users/:url/list' do
-  # cur_user = User.find_by(id: params[:id])
-  # cur_user_list = cur_user.list
-  # binding.pry
-  # erb :'users/_show', locals:{cur_user_list: cur_user_list}
-# end
-
-# post '' do
-
-# end

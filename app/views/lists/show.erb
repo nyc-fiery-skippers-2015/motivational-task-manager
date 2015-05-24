@@ -1,0 +1,11 @@
+
+<div class="container">
+  <p>Author: <%= user.name %></p>
+</div>
+<% user.lists.each do |l| %>
+  <p> List title:<%= l.title %> </p>
+<% end %>
+<% tasks.each do |t| %>
+  <p>task title: <%= t.title %></p>
+  <p>description:<%= t.description %></p>
+<% end %>
