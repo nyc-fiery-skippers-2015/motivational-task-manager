@@ -39,5 +39,5 @@ delete '/users/:id' do
   current_user = User.find_by(id: params[:id])
   return [500, "No User Found"] unless current_user
   current_user.destroy
-  redirect "/users"
+  redirect "/"
 end
