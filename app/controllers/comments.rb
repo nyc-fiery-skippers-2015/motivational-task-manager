@@ -1,4 +1,4 @@
-require 'pry'
+
 # lass CreateComments < ActiveRecord::Migration
 #   def change
 #     create_table :comments do |t|
