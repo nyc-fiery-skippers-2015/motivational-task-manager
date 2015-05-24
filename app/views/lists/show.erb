@@ -1,4 +1,3 @@
-
 <div class="container">
   <p>Author: <%= user.name %></p>
 </div>
@@ -8,4 +7,22 @@
 <% tasks.each do |t| %>
   <p>task title: <%= t.title %></p>
   <p>description:<%= t.description %></p>
+
+
+  <p> comments:</p>
+    <% t.comments.each do |comment| %>
+      <%= comment.body %>
+      <%= comment.name %>
+    <%end%>
+
+
+    <form action="/comments" method="post"/>
+      <input type="comment" name="comment[body]" placeholder="body&hellip;"/>
+      <input type="comment" name="comment[name]" placeholder="name&hellip;"/>
+      <input type="hidden" name="comment[task_id]" value= <%=t.id %> >
+      <input type="hidden" name="comment[author_id]" value=<%=user.id%> >
+      <input type="submit" value="submit!"/>
+    </form>
+
 <% end %>
+
