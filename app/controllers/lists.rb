@@ -1,6 +1,6 @@
 
 
-get '/users/:id/:url' do
+get '/users/:id/url/:url' do
   user_list = List.find_by(url: params[:url])
   cur_user = User.find_by(id: user_list.author_id)
   # binding.pry
