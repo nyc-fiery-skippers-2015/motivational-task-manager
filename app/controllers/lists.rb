@@ -1,4 +1,4 @@
-require 'pry'
+
 
 get '/users/:id/:url' do
   user_list = List.find_by(url: params[:url])
