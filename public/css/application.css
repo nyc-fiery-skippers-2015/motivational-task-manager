@@ -1,6 +1,147 @@
 
 /* CSS declarations go here */
-body {font-family: Vollkorn; font-size: 160%; line-height: 160%; }
+
+
+.inner {
+    width: 960px;
+    margin: 0 auto;
+
+}
+
+
+
+
+
+
+body {
+    margin-top: 142px;
+    background-color: #D2D2D4;
+
+}
+
+header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 80px;
+    background-color: #2F2F30;
+    /*border-bottom: solid 2px black;*/
+    color: white;
+    font-size: 1em;
+    text-align: center;
+}
+
+.logo {
+    text-decoration: none;
+    color:white;
+
+}
+
+
+
+
+
+
+header h1 {
+    margin-bottom: 20px;
+
+}
+
+
+
+.welcome {
+    margin: 0 auto;
+    margin-top: 180px;
+    text-align: center; 
+    width: 400px;
+
+}
+
+
+
+
+
+form {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input {
+    padding: 3px;
+    margin: 10px auto;
+    display: block;
+
+}
+
+
+
+
+.session-btn {
+    background-color: #2F2F30; 
+    color: white;
+    text-decoration: none;
+    margin-right: 40px;
+    border: 1px solid white;
+    padding: 5px;
+    position: absolute;
+}
+
+.session-btn:hover  {
+    background-color: white;
+    color: black;
+
+}
+
+
+.login {
+    right: 90px;
+    top: 25px;
+}
+
+
+
+.signup {
+    right: 10px;
+    top: 25px;
+}
+
+.logout {
+
+    right: 20px;
+    margin: 0 40px 0 0;
+    top: 25px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*body {font-family: Vollkorn; font-size: 160%; line-height: 160%; }
 h1, h2, h3, h4, h5, h6 {font-family: Georgia; line-height:100%; margin-top: 0.5em; margin-bottom: 0.5em; color: #36AECC; font-style: italic; font-weight: 400;}
 h1 {font-size: 1.8em;}
 h2 {font-size: 1.6em;}
@@ -66,3 +207,4 @@ code {
     margin-left: -1em;
     overflow: auto;
 }
+*/
