@@ -5,7 +5,7 @@ get '/users/:id/url/:url' do
   erb :'/lists/public_list', locals: {list: user_list, user: cur_user}
 end
 
-#make new list route
+
 get '/users/:id/lists/new' do
   require_logged_in
   current_user = User.find_by(id: params[:id])
