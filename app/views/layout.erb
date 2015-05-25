@@ -25,15 +25,8 @@
     <div class='inner'>
       <a class='logo' href="/"><h1> Peer Pressure </h1></a>
 
-      <% if current_user  %>
-        <form action='/session/logout' method='post'>
-          <input class='logout session-btn' type='submit' value='logout'>
-      <% else %>
-        <a  class='login session-btn' href="/login">log in </a>
 
-        <a  class='signup session-btn' href="/signup">sign up </a>
-      <% end %>  
-    
+
     </div>
   </header>
   <div class="main">
@@ -46,7 +39,7 @@
 
 
 
-<!-- 
+<!--
 <form action='/session' method='post'>
   <input type='text' name='user[email]' placeholder='Email' />
   <input type='password' name='user[password]' placeholder='Password' />

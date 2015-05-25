@@ -1,10 +1,11 @@
 
+
 <h1> User profiles </h1>
 <div class="container">
   <p>Author: <%= user.name %></p>
 </div>
 <% user.lists.each do |l| %>
-  <p> List title:<%= l.title %> </p>
-  <p> URL: <a href="/users/<%= user.id %>/<%= l.url %>"><%= l.title %></a> </p>
-  <p> Public URL: /users/<%= user.id %>/<%= l.url %></p>
+  <p> List Title: <%= l.title %> </p>
+  <p> List: <a href="/users/<%= user.id %>/url/<%= l.url %>"><%= l.title %></a> </p>
+  <p> Public URL: /users/<%= user.id %>/url/<%= l.url %></p>
 <% end %>
