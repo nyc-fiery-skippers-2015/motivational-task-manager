@@ -9,6 +9,7 @@
 
   <a href="/users/<%= user.id  %>/edit"> EDIT PROFILE</a>
 <% end %>
+
 <% if user.lists.count >= 1 && List.self_destruct(user.lists.first)%>
     <form action="/users/<%= user.id %>/list/edit" method="post"/>
       <input type="hidden" name="_method" value="put"/>
@@ -17,7 +18,8 @@
       <input type="submit" value="Do it!"/>
     </form>
   <%= erb :'/lists/show', locals: {user: user, tasks: user.tasks} %>
+git
 <% else %>
-  <p>Click <a href="/users/<%= user.id %>/lists/new">here</a> to create a new List!</p>
+  <p>Click <a href="/list/<%= user.id %>/list/new">here</a> to create a new List!</p>
 
 <% end %>

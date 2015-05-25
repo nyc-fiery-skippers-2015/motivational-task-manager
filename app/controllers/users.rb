@@ -24,6 +24,7 @@ end
 
 get '/users/:id/edit' do
   current_user = User.find_by(id: params[:id])
+  p current_user
   return [500, "No User Found"] unless current_user
   erb :'users/edit', locals: {user: current_user}
 end
