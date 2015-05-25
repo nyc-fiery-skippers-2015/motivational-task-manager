@@ -7,15 +7,26 @@
 <% tasks.each do |t| %>
   <p>task title: <%= t.title %></p>
   <p>description:<%= t.description %></p>
-    <form action="/<%= user.id %>/list/<%=t.id %>/delete" method="post"/>
-    <input type = "hidden" name="_method" value= "Delete"/>
-    <input type="Submit" value="DELETE"/>
-    </form>
+
+    <% if session[:user_id] == params[:id]%>
+     <form action="/<%= user.id %>/list/<%=t.id %>/delete" method="post"/>
+     <input type = "hidden" name="_method" value= "Delete"/>
+     <input type="Submit" value="DELETE"/>
+     </form>
+    <%end%>
 
   <p> comments:</p>
-    <% t.comments.each do |comment| %>
+      <% t.comments.each do |comment| %>
       <%= comment.body %>
       <%= comment.name %>
+      <%= comment.created_at.strftime("printed on %m/%d/%Y") %>
+
+     <% if session[:user_id] == params[:id]%>
+        <form action="/comments/<%= user.id %>/<%=comment.id %>/delete" method="post"/>
+        <input type = "hidden" name="_method" value= "delete"/>
+        <input type="Submit" value="DELETE"/>
+        </form>
+      <%end%>
     <%end%>
 
 
