@@ -8,23 +8,22 @@
   <p>task title: <%= t.title %></p>
   <p>description:<%= t.description %></p>
 
+
     <form action="/<%= user.id %>/list/<%=t.id %>/delete" method="post"/>
     <input type = "hidden" name="_method" value= "Delete"/>
     <input type="Submit" value="DELETE"/>
     </form>
 
-  <p>completed: <%= t.completed %>
+
+  <p>completed: <%= t.completed %></p>
     <form action='/task/complete' method="post"/>
       <input type="hidden" name="_method" value="put"/>
       <input type="hidden" name="task_id" value="<%= t.id %>"/>
       <input type="hidden" name="user_id" value="<%= user.id %>"/>
-
-
       done: <input type="checkbox" name="completed" value="true"/>
       <input type="submit" value="submit!"/>
-
     </form>
-  </p>
+
 
 
 

@@ -42,7 +42,6 @@ end
 
 put '/task/complete' do
   current_task = Task.find_by(id: params[:task_id])
-  p current_task
   current_task.completed = true
   current_task.save
   redirect "/users/#{params[:user_id]}"
