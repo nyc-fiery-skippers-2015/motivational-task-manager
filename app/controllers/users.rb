@@ -9,6 +9,7 @@ end
 
 get '/users/:id' do
   require_logged_in
+  #ZM: Use the current_user helper
   current_user = User.find_by(id: params[:id])
   user_list = current_user.lists
   return [500, "No User Found"] unless current_user
@@ -24,6 +25,7 @@ end
 
 get '/users/:id/edit' do
   current_user = User.find_by(id: params[:id])
+  #ZM: Remove the p statements from your code. 
   p current_user
   return [500, "No User Found"] unless current_user
   erb :'users/edit', locals: {user: current_user}

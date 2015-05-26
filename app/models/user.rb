@@ -7,8 +7,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :password_hash, presence: true
 
-
-
   def password
     @password ||= Password.new(password_hash)
   end
@@ -22,7 +20,4 @@ class User < ActiveRecord::Base
   def authenticate(plaintext_password)
     self.password == plaintext_password
   end
-
-
-
 end

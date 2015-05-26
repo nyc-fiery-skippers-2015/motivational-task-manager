@@ -4,43 +4,38 @@
 <% user.lists.each do |l| %>
   <p> List title:<%= l.title %> </p>
 <% end %>
+
+<!-- nested itteration is O(n2) and can get messy, try to make a show tasks
+page instead --> 
 <% tasks.each do |t| %>
   <p>task title: <%= t.title %></p>
   <p>description:<%= t.description %></p>
-
-
-    <form action="/<%= user.id %>/list/<%=t.id %>/delete" method="post"/>
+  <!-- url: /lists/:id / method: delete -->
+  <form action="/<%= user.id %>/list/<%=t.id %>/delete" method="post"/>
     <input type = "hidden" name="_method" value= "Delete"/>
     <input type="Submit" value="DELETE"/>
-    </form>
-
+  </form>
 
   <p>completed: <%= t.completed %></p>
-    <form action='/task/complete' method="post"/>
-      <input type="hidden" name="_method" value="put"/>
-      <input type="hidden" name="task_id" value="<%= t.id %>"/>
-      <input type="hidden" name="user_id" value="<%= user.id %>"/>
-      done: <input type="checkbox" name="completed" value="true"/>
-      <input type="submit" value="submit!"/>
-    </form>
-
-
-
+  <form action='/task/complete' method="post"/>
+    <input type="hidden" name="_method" value="put"/>
+    <input type="hidden" name="task_id" value="<%= t.id %>"/>
+    <input type="hidden" name="user_id" value="<%= user.id %>"/>
+    done: <input type="checkbox" name="completed" value="true"/>
+    <input type="submit" value="submit!"/>
+  </form>
 
   <p> comments:</p>
-    <% t.comments.each do |comment| %>
-      <div><%= comment.body %></div>
-      <div><%= comment.name %></div>
-    <%end%>
+  <% t.comments.each do |comment| %>
+    <div><%= comment.body %></div>
+    <div><%= comment.name %></div>
+  <%end%>
 
-
-    <form action="/comments" method="post"/>
-      <input type="comment" name="comment[body]" placeholder="body&hellip;"/>
-      <input type="comment" name="comment[name]" placeholder="name&hellip;"/>
-      <input type="hidden" name="comment[task_id]" value= <%=t.id %> >
-      <input type="hidden" name="comment[author_id]" value=<%=user.id%> >
-      <input type="submit" value="submit!"/>
-    </form>
-
+  <form action="/comments" method="post"/>
+    <input type="comment" name="comment[body]" placeholder="body&hellip;"/>
+    <input type="comment" name="comment[name]" placeholder="name&hellip;"/>
+    <input type="hidden" name="comment[task_id]" value= <%=t.id %> >
+    <input type="hidden" name="comment[author_id]" value=<%=user.id%> >
+    <input type="submit" value="submit!"/>
+  </form>
 <% end %>
-

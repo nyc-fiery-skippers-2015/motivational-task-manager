@@ -9,7 +9,11 @@
 
   <a href="/users/<%= user.id  %>/edit"> EDIT PROFILE</a>
 <% end %>
+
+<!-- CD: This self desctruct code is the job of the controller, you should
+not be putting this type of logic in the view -->
 <% if user.lists.count >= 1 && List.self_destruct(user.lists.first)%>
+<!-- CD: Use length instead of count -->
     <form action="/users/<%= user.id %>/list/edit" method="post"/>
       <input type="hidden" name="_method" value="put"/>
       <input type="task" name="task[title]" placeholder="new task title&hellip;"/>
@@ -19,5 +23,4 @@
   <%= erb :'/lists/show', locals: {user: user, tasks: user.tasks} %>
 <% else %>
   <p>Click <a href="/users/<%= user.id %>/lists/new">here</a> to create a new List!</p>
-
 <% end %>
